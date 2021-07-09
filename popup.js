@@ -25,6 +25,13 @@ amazonextension.controller('Login', ['$scope','$state', function($scope, $state)
         console.log("This is called");
         $scope.msg = 'btn clicked';
     }
+    $scope.SignIn = function(){
+        $scope.formData = {
+            'email': $scope.email,
+            'password': $scope.password,
+        };
+        console.log($scope.formData);
+    }
     $scope.goToSignUp = function(){
         $state.go('sign-up');
     }
@@ -32,7 +39,13 @@ amazonextension.controller('Login', ['$scope','$state', function($scope, $state)
 
 amazonextension.controller('SignUp', ['$scope','$state', function($scope, $state){
     $scope.signUp = function(){
-        console.log($scope.email);
+        $scope.formData = {
+            'email': $scope.email,
+            'name': $scope.name,
+            'password': $scope.password,
+            'confirm': $scope.confirm
+        };
+        console.log($scope.formData);
     }
 }]);
 
