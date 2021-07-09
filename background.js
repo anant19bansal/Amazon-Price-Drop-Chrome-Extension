@@ -16,3 +16,7 @@ $.ajax({
         console.log('There was some error: ', err);
     } 
 });
+
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
+    console.log(request);
+});

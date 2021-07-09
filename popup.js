@@ -31,6 +31,7 @@ amazonextension.controller('Login', ['$scope','$state', function($scope, $state)
             'password': $scope.password,
         };
         console.log($scope.formData);
+        chrome.runtime.sendMessage({data: $scope.formData});
     }
     $scope.goToSignUp = function(){
         $state.go('sign-up');
@@ -46,6 +47,7 @@ amazonextension.controller('SignUp', ['$scope','$state', function($scope, $state
             'confirm': $scope.confirm
         };
         console.log($scope.formData);
+        chrome.runtime.sendMessage({data: $scope.formData});
     }
 }]);
 
