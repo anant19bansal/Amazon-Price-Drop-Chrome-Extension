@@ -21,6 +21,7 @@ app.post('/products', function (req, res) {
     });
 });
 
+app.use('/', require('./routes/index'));
 
 app.listen(port, function (err) {
     if (err) {
