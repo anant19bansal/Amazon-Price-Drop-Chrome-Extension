@@ -19,10 +19,16 @@ console.log($('<h1>Hi</h1>'));
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse){
     console.log(request);
+    let url; 
+    if(request.data.isLogin){
+        url = 'http://localhost:8000/users/create-session';
+    }else{
+        url = 'http://localhost:8000/users/create-user';
+    }
     $.ajax({
         type: 'POST',
-        url: 'http://localhost:8000/users/create-user',
-        data: request.data,
+        url: url,
+        data: request.data.data,
         success: function(data){
             console.log(data);
         },

@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const cors = require('cors');
 const db = require('./config/mongoose');
+const passport = require('passport');
+const passportJwt = require('passport-jwt').Strategy;
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));

@@ -27,8 +27,11 @@ amazonextension.controller('Login', ['$scope','$state', function($scope, $state)
     }
     $scope.SignIn = function(){
         $scope.formData = {
-            'email': $scope.email,
-            'password': $scope.password,
+            'isLogin':true,
+            'data':{
+                'email': $scope.email,
+                'password': $scope.password,
+            }
         };
         console.log($scope.formData);
         chrome.runtime.sendMessage({data: $scope.formData});
@@ -41,10 +44,13 @@ amazonextension.controller('Login', ['$scope','$state', function($scope, $state)
 amazonextension.controller('SignUp', ['$scope','$state', function($scope, $state){
     $scope.signUp = function(){
         $scope.formData = {
-            'email': $scope.email,
-            'name': $scope.name,
-            'password': $scope.password,
-            'confirm': $scope.confirm
+            'data':{
+                'email': $scope.email,
+                'name': $scope.name,
+                'password': $scope.password,
+                'confirm': $scope.confirm,
+            },
+            'isLogin':false,
         };
         console.log($scope.formData);
         chrome.runtime.sendMessage({data: $scope.formData});
