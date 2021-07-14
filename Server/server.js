@@ -7,21 +7,8 @@ const db = require('./config/mongoose');
 const passport = require('passport');
 const passportJwt = require('passport-jwt').Strategy;
 const app = express();
-
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
-
-app.get('/', function (req, res) {
-    return res.send('<h1>Hello World</h1>');
-});
-
-app.post('/products', function (req, res) {
-    console.log(req.body);
-    return res.status(200).json({
-        data: {
-            message: 'Greetings from the server',
-        }
-    });
-});
 
 app.use('/', require('./routes/index'));
 
