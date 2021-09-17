@@ -8,11 +8,11 @@ const productSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
-        unique: true
     },
     itemId: {
         type: String,
         required: true,
+        unique: true
     },
     link: {
         type:String,
